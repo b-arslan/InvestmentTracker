@@ -1,0 +1,61 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #e93;
+    height: 50vh;
+    width: 25vw;
+    border: none;
+    border-radius: 50px;
+    gap: 7rem;
+}
+
+.header {
+    /* Sabit konumlandırmayı kaldırdık */
+    width: 100%;
+    padding-top: 10px;
+    text-align: center; /* Başlığı ortala */
+    position: relative; /* Ekledik */
+    top: 0; /* Ekledik */
+    left: 0; /* Ekledik */
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.text {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.data {
+    width: 200px;
+    height: 25px;
+    border: 1px solid #000;
+}
+
+.data:focus {
+    outline: none;
+    border: 1px solid #000;
+}
