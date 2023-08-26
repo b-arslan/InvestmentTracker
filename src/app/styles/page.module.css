@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: linear-gradient(to top right, #BEAAFF 30%, #FBA0FF);
 }
 
 .container {
@@ -10,12 +11,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: #e93;
+    background: #FFFFFF;
     height: 50vh;
     width: 25vw;
     border: none;
     border-radius: 50px;
-    gap: 7rem;
+    gap: 5rem;
 }
 
 .header {
@@ -33,6 +34,14 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    gap: 2rem;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -58,4 +67,27 @@
 .data:focus {
     outline: none;
     border: 1px solid #000;
+}
+
+.btn {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #7351FF;
+    border-radius: 25px;
+    background: #7351FF;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    animation: pulsate 1.5s ease-in-out;
+}
+
+@keyframes pulsate {
+    0%{
+        box-shadow: 
+        0 0 50px #7351FF,
+        0 0 75px #FFFFFF;
+    }
 }
