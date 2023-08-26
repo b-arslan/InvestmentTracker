@@ -1,12 +1,11 @@
 'use client'
- 
+
 import styles from './styles/page.module.css'
 import { fetchCurrencies } from './api/api'
-import { useState, useEffect } from 'react';
-import Portfolio from './portfolio/page';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-export default function Home() {
+export default function Home(props) {
 
     const [currencies, setCurrencies] = useState([]);
     const [selectedCurrency, setSelectedCurrency] = useState("");
@@ -14,9 +13,10 @@ export default function Home() {
 
     const router = useRouter();
     
-    const handleClick = (e) => {
-        e.preventDefault();
+    const handleClick = async (e) => {
+
         router.push('/portfolio');
+
     }
 
     useEffect(() => {

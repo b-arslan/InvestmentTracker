@@ -9,24 +9,14 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     background: #FFFFFF;
-    height: 50vh;
-    width: 25vw;
     border: none;
     border-radius: 50px;
+    height: 500px;
+    width: 700px;
     gap: 5rem;
-}
-
-.header {
-    /* Sabit konumlandırmayı kaldırdık */
-    width: 100%;
-    padding-top: 10px;
-    text-align: center; /* Başlığı ortala */
-    position: relative; /* Ekledik */
-    top: 0; /* Ekledik */
-    left: 0; /* Ekledik */
 }
 
 .currency {
