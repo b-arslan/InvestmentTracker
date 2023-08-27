@@ -1,22 +1,24 @@
 'use client'
-
+import React from 'react'
 import styles from './styles/page.module.css'
-import { fetchCurrencies } from './api/api'
+import { fetchCurrencies } from './api/currencies'
+import { sendRecord } from './api/records'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-export default function Home(props) {
+
+export default function Home() {
 
     const [currencies, setCurrencies] = useState([]);
     const [selectedCurrency, setSelectedCurrency] = useState("");
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState(0)
 
     const router = useRouter();
     
-    const handleClick = async (e) => {
-
+    const handleClick = (e) => {
+        sendRecord(amount, selectedCurrency);
+        e.preventDefault();
         router.push('/portfolio');
-
     }
 
     useEffect(() => {
@@ -35,53 +37,39 @@ export default function Home(props) {
 
 
     return (
-        
-        <div className={styles.main}>
+        <section className={styles.container}>
 
-            <div className={styles.container}>
+            <section className={styles.main}>
 
-                <div className={styles.header}>
+                <React.Fragment className={styles.container}>
 
-                    <h1 className={styles.title}>Investment Tracking App</h1>
+                    <h1 className={styles.title}>Investment Tracking App</h1>                
 
-                </div>
+                    <p className={styles.text}>Please Select Currency</p>
 
-                <div className={styles.currency}>
-                    <div className={styles.textContainer}>
+                    <select className={styles.data} value={selectedCurrency} onChange={(e) => {setSelectedCurrency(e.target.value)}}>
+                        <option>Select currency</option>
+                        {currencies.map((currencyItem) => (
 
-                        <p className={styles.text}>Please Select Currency</p>
+                            <option key={currencyItem.symbol} value={currencyItem.symbol}>{currencyItem.symbol}</option>
+                        ))}
+                    </select>
+    
 
-                        <select className={styles.data} value={selectedCurrency} onChange={(e) => {setSelectedCurrency(e.target.value)}}>
-                            <option>Select currency</option>
-                            {currencies.map((currencyItem) => (
+                    <p className={styles.text}>Please Type Amount</p>
 
-                                <option key={currencyItem.symbol} value={currencyItem.symbol}>{currencyItem.symbol}</option>
-                            ))}
-                        </select>
-
-                    </div>
-                    
-                    <div className={styles.textContainer}>
-
-                        <p className={styles.text}>Please Type Amount</p>
-
-                        <input placeholder='Amount Here' className={styles.data} type='number' min={0} onChange={(e) => setAmount(e.target.value)} />
-
-                    </div>
-
-                </div>
-
-                <div>
+                    <input placeholder='Amount Here' className={styles.data} type='number' min={0} onChange={(e) => setAmount(e.target.value)} />
+                
+                
 
                     <button className={styles.btn} onClick={handleClick}>
                         Add Currency
                     </button>
+                    
+                </React.Fragment>
 
-                </div>
-                
-            </div>
-
-        </div>
+            </section>
+        </section>
 
     )
 }

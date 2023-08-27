@@ -1,16 +1,99 @@
-
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .container {
+   background: #fff;
+   border: none;
+   border-radius: 35px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.headerContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    border: 2px solid #000;
-    min-width: 500px;
-    min-height: 500px;
+    align-items: baseline;   
+    padding-top: 20px; 
+    color: #000;
+    font-size: 48px;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
 }
+
+/* styles.css veya TableComponent.css */
+
+.btnTab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn {
+    width: 70px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    border-radius: 25px;
+    background: #7351FF;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.customTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #ddd;
+}
+  
+.customTable th, .customTable td {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+  
+.customTable th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+  
+.customTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+  
+.customTable td:last-child, .customTable th:last-child {
+    border-right: none;
+}
+
+.goBack {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #7351FF;
+    border-radius: 25px;
+    background: #7351FF;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+}
+
+.goBack:hover {
+    animation: sparkle 1s ease-in-out;
+}
+
+@keyframes sparkle {
+    0%{
+        box-shadow: 
+        0 0 50px #7351FF,
+        0 0 75px #FFFFFF;
+    }
+}
+  
