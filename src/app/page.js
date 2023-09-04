@@ -1,25 +1,39 @@
+'use client'
+
 import Image from 'next/image';
 import styles from './styles/page.module.css'
 import investmentImg from '../../public/investment.jpg'
+import { useRouter } from 'next/navigation'
 
 function Home() {
+
+    const router = useRouter();
+
+    const routeSignin = () => {
+        router.push('/signin')
+    }
+
+    const routeSignup = () => {
+        router.push('/signup')
+    }
+
     return (  
-        <section>
+        <section className={styles.main}>
 
             <header className={styles.pageHeader}>
                 
                 <div className={styles.pageTitle}>
                     <h1>Investment Tracking</h1>
                 </div>
+
                 <div className={styles.btnContainer}>
-                    <button>Home</button>
-                    <button>Portfolio</button>
-                    <button>Get the Code</button>
+                    <button className={styles.btnTransparent} onClick={routeSignin}>Sign Up</button>
+                    <button className={styles.btn} onClick={routeSignup}>Sign In</button>
                 </div>
                 
             </header>
 
-            <section className={styles.content}>
+            <div className={styles.content}>
 
                 <div className={styles.pageContentImg}>
                     <Image src={investmentImg} className={styles.investmentImg}/>
@@ -33,7 +47,7 @@ function Home() {
                     <p> To get started, click on the "Sign Up" button and take your first step towards financial success. Don't delay any longer; start shaping your future today!</p>
                 </div>
 
-            </section>
+            </div>
 
         </section>
     );

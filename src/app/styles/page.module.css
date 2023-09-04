@@ -1,16 +1,25 @@
 
+.main {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #111111;
+}
+
 .pageHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: #111111;
+    padding: 5px 30px;
     position: fixed;
+    width: calc(100vw - 60px); /* Padding değerini dikkate alarak genişliği hesapla */
     top: 0;
     left: 0;
-    width: 100%; /* Tam ekran genişliğini kaplaması için */
     height: 8vh;
-    z-index: 10; /* Diğer içeriklerin üzerinde görünmesini sağlar */
+    z-index: 10;
 }
+
 
 .content {
     display: flex;
@@ -30,12 +39,27 @@
 }
 
 .btn {
-    color: #000;
+    color: #111111;
+    background: #FFCB74;
+    border: 1px solid #FFCB74;
+    border-radius: 20px;
+    width: 80px;
+    height: 30px;
+}
+
+.btnTransparent {
+    color: #fff;
+    border: 1px solid #FFCB74;
+    border-radius: 20px;
+    width: 80px;
+    height: 30px;
 }
 
 .btnContainer {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .investmentImg {
@@ -49,5 +73,17 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: #fff;
-    width: 15rem;
+    width: 450px;
+}
+
+@media (max-width: 1200px) {
+    .investmentImg {
+        width: 220px;
+        height: 220px;
+    }
+
+    .pageContentText {
+        font-size: 14px;
+        width: 300px;
+    }
 }
