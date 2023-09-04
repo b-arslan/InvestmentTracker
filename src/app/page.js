@@ -27,8 +27,8 @@ function Home() {
                 </div>
 
                 <div className={styles.btnContainer}>
-                    <button className={styles.btnTransparent} onClick={routeSignin}>Sign Up</button>
-                    <button className={styles.btn} onClick={routeSignup}>Sign In</button>
+                    <button className={styles.btnTransparent} onClick={routeSignup}>Sign Up</button>
+                    <button className={styles.btn} onClick={routeSignin}>Sign In</button>
                 </div>
                 
             </header>

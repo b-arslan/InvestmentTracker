@@ -1,8 +1,12 @@
+import AuthForm from "../components/AuthForm"
+import styles from '../styles/authform.module.css'
 
 
 function SignUp() {
     return (  
-        <div>signup</div>
+        <section className={styles.main}>
+            <AuthForm title={'Sign Up'} btnLabel={'Sign Up'}/>
+        </section>
     );
 }
 
