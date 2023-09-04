@@ -1,5 +1,0 @@
-We will have a container on the screen, where we can select a currency and an amount to add. Whenever we press the add button, it will be set into an array, and when we press the "portfolio" button above, the portfolio page will open.
-
-On the portfolio page, there will be a table. Inside the table, the selected currency, entered amount, current value, and total value will be displayed. Within the table, it will be possible to perform deletion and editing actions.
-
-Of course, we will use useEffect to ensure that the data persists and remains there, so that the data doesn't get lost.
