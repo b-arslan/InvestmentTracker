@@ -1,20 +1,64 @@
+
 .main {
     height: 100vh;
-    background: #fff;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 2rem;
+    background: #111111;
+}
+
+.upperSection, .lowerSection {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.upperSection {
+    align-items: center;
+}
+
+.lowerSection {
+    align-items: flex-start;
 }
 
 .container {
-   background: #fff;
-   border: none;
-   border-radius: 35px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.secondContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-self: center;
+    gap: 2px;
+}
+  
+.data {
+    width: 200px;
+    height: 22px;
+    border: 1px solid #000;
+}
+
+.amount {
+    width: 193px;
+    height: 17px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+.data:focus {
+    outline: none;
+    border: 1px solid #000;
+}
+
+.amount:focus {
+    outline: none;
+    border: 1px solid #000;
 }
 
 .headerContainer {
@@ -73,27 +117,3 @@
 .customTable td:last-child, .customTable th:last-child {
     border-right: none;
 }
-
-.goBack {
-    width: 120px;
-    height: 40px;
-    border: 1px solid #7351FF;
-    border-radius: 25px;
-    background: #7351FF;
-    color: #FFFFFF;
-    text-align: center;
-    cursor: pointer;
-}
-
-.goBack:hover {
-    animation: sparkle 1s ease-in-out;
-}
-
-@keyframes sparkle {
-    0%{
-        box-shadow: 
-        0 0 50px #7351FF,
-        0 0 75px #FFFFFF;
-    }
-}
-  

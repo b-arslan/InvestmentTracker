@@ -28,6 +28,10 @@ function AuthForm({ title, btnLabel }) {
         router.push('/'); // Kullanıcıyı bir önceki sayfaya yönlendirir
     }
 
+    const handleClick = () => {
+        router.push('/portfolio');
+    }
+
     return (  
         <section className={styles.main2}>
             <div>
@@ -62,7 +66,7 @@ function AuthForm({ title, btnLabel }) {
             </div>
 
             <div>
-                <button className={styles.btn}>{btnLabel}</button>
+                <button className={styles.btn} onClick={handleClick}>{btnLabel}</button>
             </div>
         </section>
     );

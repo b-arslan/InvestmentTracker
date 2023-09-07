@@ -1,92 +1,105 @@
 'use client'
 import React from 'react'
-import styles from '../styles/portfolio.module.css'
-import { fetchRecords } from '../api/records'
+import styles from '../styles/util.module.css'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 
-export default function Portfolio() {
+function specs() {
 
-    const router = useRouter();
 
-    const [records, setRecords] = useState([]);
     const [currencies, setCurrencies] = useState([]);
+    const [selectedCurrency, setSelectedCurrency] = useState("");
+    const [amount, setAmount] = useState(0)
+    const [records, setRecords] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const filteredData = await fetchRecords();
-            setRecords(filteredData);
+            const filteredData = await fetchCurrencies();
+            setCurrencies(filteredData);
           } catch (error) {
             console.error(error);
           }
         };
-
-        const fetchBinance = async () => {
-            try {
-                const filteredData = await fetchCurrencies();
-                setCurrencies(filteredData);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-        
-        fetchBinance();
+    
         fetchData();
     }, []);
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        router.push('/');
-    }
 
-    /* {records.map((e) => (<h1>{e.amount} - {e.id} - {e.currency}</h1>))} */
 
-    return (
-        <div className={styles.main}>
+    return (  
+        <section className={styles.main}>
+            <section className={styles.upperSection}>
 
-            <div className={styles.headerContainer}>
-                <header className={styles.header}>My Portfolio</header>
-            </div>
+                <section className={styles.container}>
 
-            <div className={styles.container}>
+                    <div className={styles.secondContainer}>
 
-                <table className={styles.customTable}>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Currency</th>
-                            <th>Amount</th>
-                            <th>Price</th>
-                            <th>Total Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {records.map((record) => (
-                            <tr key={record.id}>
-                                <td>{record.id}</td>
-                                <td>{record.currency}</td>
-                                <td>{record.amount}</td>
-                                <td>{record.price}</td>
-                                <td>{record.amount * record.price}</td>
-                                <td className={styles.btnTab}>
-                                    <button className={styles.btn}>Edit</button>
-                                    <button className={styles.btn}>Delete</button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        <label>Select Currency</label>
+                        <select className={styles.data} value={selectedCurrency} onChange={(e) => {setSelectedCurrency(e.target.value)}}>
+                            <option>Select currency</option>
+                            {currencies.map((currencyItem) => (
+
+                                <option key={currencyItem.symbol} value={currencyItem.symbol}>{currencyItem.symbol}</option>
+                            ))}
+                        </select>
+
+                    </div>
+                    
+                    <div className={styles.secondContainer}>
+
+                        <label>Amount</label>
+                        <input placeholder='Amount Here' className={styles.amount} type='number' min={0} onChange={(e) => setAmount(e.target.value)} />
+                    </div>
+                    
+                </section>
+        
+            </section>
+
+            <section className={styles.lowerSection}>
+
                 
-            </div>
 
-            <div>
-                <button className={styles.goBack} onClick={handleClick}>
-                    Back to Home
-                </button>
-            </div>
+                <div className={styles.headerContainer}>
+                    <header className={styles.header}>Portfolio</header>
+                </div>
 
-        </div>
+                <div className={styles.container2}>
+
+                    <table className={styles.customTable}>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Currency</th>
+                                <th>Amount</th>
+                                <th>Price</th>
+                                <th>Total Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {records.map((record) => (
+                                <tr key={record.id}>
+                                    <td>{record.id}</td>
+                                    <td>{record.currency}</td>
+                                    <td>{record.amount}</td>
+                                    <td>{record.price}</td>
+                                    <td>{record.amount * record.price}</td>
+                                    <td className={styles.btnTab}>
+                                        <button className={styles.btn}>Edit</button>
+                                        <button className={styles.btn}>Delete</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                        
+                </div>
+
+                
+
+            </section>
+        </section>
     );
 }
+
+export default specs;
