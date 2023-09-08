@@ -1,0 +1,66 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.title {
+    color: #000;
+}
+
+.yes {
+    color: #2f2f2f;
+    cursor: pointer;
+    border: 1px solid #ffcb74;
+    background: #ffcb74;
+    border-radius: 25px;
+    width: 50px;
+    height: 25px;
+}
+
+.no {
+    cursor: pointer;
+    background: red;
+    color: #fff;
+    border-radius: 25px;
+    width: 50px;
+    height: 25px;
+}
+
+.yes:hover {
+    background: #2f2f2f;
+    border: none;
+    color: #ffcb74;
+}
+
+.no:hover {
+    background: #fff;
+    border: 1px solid red;
+    color: red;
+}

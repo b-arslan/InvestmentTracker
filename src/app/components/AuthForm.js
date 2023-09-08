@@ -35,7 +35,7 @@ function AuthForm({ title, btnLabel }) {
     return (  
         <section className={styles.main2}>
             <div>
-                <button onClick={goBack} className={styles.goBackButton}>Geri</button> {/* Geri butonu */}
+                <button onClick={goBack} className={styles.goBackButton}>Back</button> {/* Geri butonu */}
                 <h1 className={styles.title}>{title}</h1>
             </div>
 

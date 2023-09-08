@@ -6,26 +6,28 @@
     background: #111111;
 }
 
-.upperSection, .lowerSection {
-    flex: 1;
+.upperSection {
     display: flex;
+    align-items: center;
     justify-content: center;
+    height: 25vh;
     color: #fff;
 }
 
-.upperSection {
-    align-items: center;
-}
-
 .lowerSection {
-    align-items: flex-start;
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    height: 75vh;
+    color: #fff;
 }
 
 .container {
     width: 30%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     gap: 2rem;
 }
@@ -34,10 +36,20 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-self: center;
+    justify-content: center;
     gap: 2px;
 }
-  
+
+.myBtn {
+    padding: 5px;
+    border: 1px solid #ffcb74;
+    border-radius: 15px;
+    width: 50px;
+    height: 23px;
+    background: #ffcb74;
+    color: #2f2f2f;
+}
+
 .data {
     width: 200px;
     height: 22px;
@@ -66,7 +78,6 @@
     justify-content: center;
     align-items: baseline;   
     padding-top: 20px; 
-    color: #000;
     font-size: 48px;
     font-weight: 800;
     font-family: 'Times New Roman', Times, serif;
@@ -95,25 +106,42 @@
 .customTable {
     border-collapse: collapse;
     width: 100%;
-    border: 2px solid #ddd;
+    border: 1px solid #ffcb74;
 }
   
 .customTable th, .customTable td {
     text-align: center;
     padding: 8px;
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ffcb74;
+    border-right: 1px solid #ffcb74;
 }
   
 .customTable th {
-    background-color: #f2f2f2;
+    background-color: #2f2f2f;
     text-align: center;
 }
   
 .customTable tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #2f2f2f;
 }
   
 .customTable td:last-child, .customTable th:last-child {
     border-right: none;
+}
+
+.backBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 15px;
+    border: 1px solid #ffcb74;
+    background-color: #111111;
+    color: #ffcb74;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.backBtn:hover {
+    background-color: #ffcb74;
+    color: #2f2f2f;
 }

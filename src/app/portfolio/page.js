@@ -2,14 +2,30 @@
 import React from 'react'
 import styles from '../styles/util.module.css'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import Modal from '../components/Modal'
 
 function specs() {
 
-
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [currencies, setCurrencies] = useState([]);
     const [selectedCurrency, setSelectedCurrency] = useState("");
     const [amount, setAmount] = useState(0)
     const [records, setRecords] = useState([]);
+
+    const router = useRouter();
+
+    const handleBackClick = () => {
+        setIsModalOpen(true);
+    };
+
+    const confirmBack = () => {
+        router.push('/');
+    };
+
+    const cancelBack = () => {
+        setIsModalOpen(false);
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,7 +45,12 @@ function specs() {
     return (  
         <section className={styles.main}>
             <section className={styles.upperSection}>
-
+                <button className={styles.backBtn} onClick={handleBackClick}>Log Out</button>
+                <Modal 
+                    isOpen={isModalOpen} 
+                    onConfirm={confirmBack} 
+                    onCancel={cancelBack}
+                />
                 <section className={styles.container}>
 
                     <div className={styles.secondContainer}>
@@ -49,6 +70,10 @@ function specs() {
 
                         <label>Amount</label>
                         <input placeholder='Amount Here' className={styles.amount} type='number' min={0} onChange={(e) => setAmount(e.target.value)} />
+                    </div>
+
+                    <div className={styles.btnContainer}>
+                        <button className={styles.myBtn}>Add</button>
                     </div>
                     
                 </section>
