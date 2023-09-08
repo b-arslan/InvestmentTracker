@@ -25,7 +25,7 @@ function AuthForm({ title, btnLabel }) {
     }
     
     const goBack = () => {
-        router.push('/'); // Kullanıcıyı bir önceki sayfaya yönlendirir
+        router.push('/');
     }
 
     const handleClick = () => {
@@ -35,7 +35,7 @@ function AuthForm({ title, btnLabel }) {
     return (  
         <section className={styles.main2}>
             <div>
-                <button onClick={goBack} className={styles.goBackButton}>Back</button> {/* Geri butonu */}
+                <button onClick={goBack} className={styles.goBackButton}>Back</button>
                 <h1 className={styles.title}>{title}</h1>
             </div>
 

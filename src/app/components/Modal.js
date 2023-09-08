@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/modal.module.css' // Stiller için ayrı bir CSS dosyası oluşturabilirsiniz.
+import styles from '../styles/modal.module.css'
 
 function Modal({ isOpen, onConfirm, onCancel }) {
     if (!isOpen) return null;

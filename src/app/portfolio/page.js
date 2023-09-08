@@ -1,17 +1,20 @@
 'use client'
 import React from 'react'
-import styles from '../styles/util.module.css'
-import { useState, useEffect } from 'react'
+import styles from '../styles/portfolio.module.css'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Modal from '../components/Modal'
+import { fetchCurrencies } from '../api/currencies'
 
-function specs() {
+function Portfolio() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currencies, setCurrencies] = useState([]);
     const [selectedCurrency, setSelectedCurrency] = useState("");
     const [amount, setAmount] = useState(0)
     const [records, setRecords] = useState([]);
+
+    const amountRef = useRef(null);
 
     const router = useRouter();
 
@@ -25,6 +28,13 @@ function specs() {
 
     const cancelBack = () => {
         setIsModalOpen(false);
+    };
+
+    const clearInputs = () => {
+        setSelectedCurrency("");
+        if(amountRef.current) {
+            amountRef.current.value = "";
+        }
     };
 
     useEffect(() => {
@@ -57,7 +67,7 @@ function specs() {
 
                         <label>Select Currency</label>
                         <select className={styles.data} value={selectedCurrency} onChange={(e) => {setSelectedCurrency(e.target.value)}}>
-                            <option>Select currency</option>
+                            <option>Select Currency</option>
                             {currencies.map((currencyItem) => (
 
                                 <option key={currencyItem.symbol} value={currencyItem.symbol}>{currencyItem.symbol}</option>
@@ -69,11 +79,12 @@ function specs() {
                     <div className={styles.secondContainer}>
 
                         <label>Amount</label>
-                        <input placeholder='Amount Here' className={styles.amount} type='number' min={0} onChange={(e) => setAmount(e.target.value)} />
+                        <input placeholder='Amount Here' className={styles.amount} type='number' min={0} ref={amountRef} onChange={(e) => setAmount(e.target.value)} />
                     </div>
 
                     <div className={styles.btnContainer}>
                         <button className={styles.myBtn}>Add</button>
+                        <button className={styles.myBtnClear} onClick={clearInputs}>Clear</button>
                     </div>
                     
                 </section>
@@ -93,23 +104,23 @@ function specs() {
                     <table className={styles.customTable}>
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Currency</th>
-                                <th>Amount</th>
-                                <th>Price</th>
-                                <th>Total Price</th>
-                                <th>Action</th>
+                                <th className={styles.idColumn}>ID</th>
+                                <th className={styles.currencyColumn}>Currency</th>
+                                <th className={styles.amountColumn}>Amount</th>
+                                <th className={styles.priceColumn}>Price</th>
+                                <th className={styles.totalPriceColumn}>Total Price</th>
+                                <th className={styles.actionColumn}>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {records.map((record) => (
                                 <tr key={record.id}>
-                                    <td>{record.id}</td>
-                                    <td>{record.currency}</td>
-                                    <td>{record.amount}</td>
-                                    <td>{record.price}</td>
-                                    <td>{record.amount * record.price}</td>
-                                    <td className={styles.btnTab}>
+                                    <td className={styles.idColumn}>{record.id}</td>
+                                    <td className={styles.currencyColumn}>{record.currency}</td>
+                                    <td className={styles.amountColumn}>{record.amount}</td>
+                                    <td className={styles.priceColumn}>{record.price}</td>
+                                    <td className={styles.totalPriceColumn}>{record.amount * record.price}</td>
+                                    <td className={styles.actionColumn}>
                                         <button className={styles.btn}>Edit</button>
                                         <button className={styles.btn}>Delete</button>
                                     </td>
@@ -127,4 +138,4 @@ function specs() {
     );
 }
 
-export default specs;
+export default Portfolio;
